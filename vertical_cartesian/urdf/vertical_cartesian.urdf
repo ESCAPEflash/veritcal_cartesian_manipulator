@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="vertical_cartesian">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.049116 0.21966 0.033231"
+        rpy="0 0 0" />
+      <mass
+        value="0.79393" />
+      <inertia
+        ixx="0.0026337"
+        ixy="9.5608E-06"
+        ixz="-6.8778E-10"
+        iyy="0.0011002"
+        iyz="-8.2289E-11"
+        izz="0.0029366" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vertical_cartesian/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vertical_cartesian/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link1">
+    <inertial>
+      <origin
+        xyz="-0.00031778 0.04532 -0.0030874"
+        rpy="0 0 0" />
+      <mass
+        value="0.82763" />
+      <inertia
+        ixx="0.0014425"
+        ixy="7.8549E-06"
+        ixz="2.0529E-05"
+        iyy="0.0018363"
+        iyz="-1.2126E-06"
+        izz="0.0014501" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vertical_cartesian/meshes/link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vertical_cartesian/meshes/link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="prismatic">
+    <origin
+      xyz="-0.049468 -0.043231 0.18035"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.1"
+      upper="0.21"
+      effort="50"
+      velocity="2" />
+  </joint>
+  <link
+    name="link2">
+    <inertial>
+      <origin
+        xyz="0.0015684 -0.15332 0.032479"
+        rpy="0 0 0" />
+      <mass
+        value="0.29266" />
+      <inertia
+        ixx="0.0012177"
+        ixy="4.9515E-08"
+        ixz="-2.3087E-06"
+        iyy="0.00025355"
+        iyz="2.1899E-08"
+        izz="0.0011674" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vertical_cartesian/meshes/link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.56863 0.54902 0.5098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://vertical_cartesian/meshes/link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="prismatic">
+    <origin
+      xyz="0 0.0125 0.0475"
+      rpy="0 1.5236 1.5708" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.05"
+      upper="0.3"
+      effort="50"
+      velocity="2" />
+  </joint>
+</robot>
